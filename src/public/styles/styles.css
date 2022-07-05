@@ -1,0 +1,21 @@
+.dsp-flex {
+  display: flex;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.card {
+  min-height: 15rem;
+  min-width: 20rem;
+}
+
+.wd-100 {
+  width: 100%;
+}
+
+.mr-l-1r {
+    margin-left: 1rem;
+}
