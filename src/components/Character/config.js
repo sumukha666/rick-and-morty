@@ -3,3 +3,8 @@ export const characterFields = [
   { key: "species", keyLabel: "Species" },
   { key: "gender", keyLabel: "Gender" },
 ];
+
+export const chapterInfoTableHeader = [
+  { key: "name", label: "Chapter name" },
+  { key: "episode", label: "Episode" },
+];
