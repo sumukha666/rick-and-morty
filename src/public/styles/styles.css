@@ -39,6 +39,10 @@
   margin: 1rem;
 }
 
+.mr-t-1r {
+  margin-top: 1rem;
+}
+
 .btn-primary {
   font-size: 1rem;
   border: none;
@@ -98,18 +102,25 @@
   padding: 2rem;
 }
 
-.chapter-modal-loader {
-  height: 20.313rem;
+.modal-loader {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.chapter-modal-table {
+.chapter-modal-content {
   height: 20.313rem;
 }
 
 .temp-img {
   background: url("../images/defaultImg.webp") no-repeat;
   background-size: cover;
+}
+
+.loc-modal-obj-view {
+  height: 5rem;
+}
+
+.font-bold {
+  font-weight: bold;
 }

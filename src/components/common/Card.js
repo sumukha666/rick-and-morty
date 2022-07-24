@@ -24,7 +24,7 @@ function CustomCard(props) {
         <div className="title">{title}</div>
         <div>{children}</div>
       </CardContent>
-      <CardActions className="dsp-flex justify-content-end">
+      <CardActions className="dsp-flex justify-content-end mr-t-1r">
         {leftBtn.required && (
           <button className="btn-secondary" onClick={leftBtn.onClick}>
             {leftBtn.label}
