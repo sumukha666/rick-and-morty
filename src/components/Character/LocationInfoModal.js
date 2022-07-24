@@ -3,6 +3,7 @@ import CustomBackdrop from "../common/Backdrop";
 import CustomCard from "../common/Card";
 import CustomLoader from "../common/Loader";
 import ObjectView from "../common/ObjectView";
+import PropTypes from "prop-types";
 
 function locationInfoModal(props) {
   const { openBackDrop, locDetails, closeModal, loading = false } = props;
@@ -16,8 +17,7 @@ function locationInfoModal(props) {
               required: true,
               onClick: closeModal,
               label: "Close",
-            }}
-          >
+            }}>
             <div className="heading">Character Location Information</div>
             {loading && (
               <div className="modal-loader loc-modal-obj-view">
@@ -35,9 +35,7 @@ function locationInfoModal(props) {
                     }}
                   />
                 ) : (
-                  <div>
-                    Unable to fetch the details. Please try again after sometime
-                  </div>
+                  <div>Unable to fetch the details. Please try again after sometime</div>
                 )}
               </div>
             )}
@@ -47,5 +45,12 @@ function locationInfoModal(props) {
     </div>
   );
 }
+
+locationInfoModal.propTypes = {
+  openBackDrop: PropTypes.bool,
+  chaptersList: PropTypes.array,
+  closeModal: PropTypes.func,
+  loading: PropTypes.bool,
+};
 
 export default locationInfoModal;

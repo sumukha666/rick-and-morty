@@ -7,6 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import PropTypes from "prop-types";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -54,9 +55,7 @@ function CustomTable(props) {
           {rows.map((row) => (
             <StyledTableRow key={row.id}>
               {tableHeader.map((header) => (
-                <StyledTableCell key={header.key}>
-                  {row[header.key]}
-                </StyledTableCell>
+                <StyledTableCell key={header.key}>{row[header.key]}</StyledTableCell>
               ))}
             </StyledTableRow>
           ))}
@@ -65,5 +64,10 @@ function CustomTable(props) {
     </TableContainer>
   );
 }
+
+CustomTable.propTypes = {
+  rows: PropTypes.array,
+  tableHeader: PropTypes.array,
+};
 
 export default CustomTable;

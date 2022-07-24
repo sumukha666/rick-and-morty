@@ -1,3 +1,6 @@
+import React from "react";
+import PropTypes from "prop-types";
+
 function ObjectView(props) {
   const { objs, objStyles = { box: {}, key: {} } } = props;
 
@@ -14,5 +17,10 @@ function ObjectView(props) {
     </div>
   );
 }
+
+ObjectView.propTypes = {
+  objs: PropTypes.array,
+  objStyles: PropTypes.object,
+};
 
 export default ObjectView;

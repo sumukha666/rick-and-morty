@@ -2,17 +2,10 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import { CardActions } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 function CustomCard(props) {
-  const {
-    title,
-    imageUrl,
-    imgAlt,
-    children,
-    leftBtn = {},
-    rightBtn = {},
-    imgStyle={}
-  } = props;
+  const { title, imageUrl, imgAlt, children, leftBtn = {}, rightBtn = {}, imgStyle = {} } = props;
   return (
     <Card>
       <CardContent>
@@ -39,5 +32,15 @@ function CustomCard(props) {
     </Card>
   );
 }
+
+CustomCard.propTypes = {
+  title: PropTypes.string,
+  imageUrl: PropTypes.string,
+  imgAlt: PropTypes.string,
+  children: PropTypes.node,
+  leftBtn: PropTypes.object,
+  rightBtn: PropTypes.object,
+  imgStyle: PropTypes.object,
+};
 
 export default CustomCard;

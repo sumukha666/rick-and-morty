@@ -4,6 +4,7 @@ import CustomCard from "../common/Card";
 import CustomLoader from "../common/Loader";
 import CustomTable from "../common/Table";
 import { chapterInfoTableHeader } from "./config";
+import PropTypes from "prop-types";
 
 function ChapterInfoModal(props) {
   const { openBackDrop, chaptersList, closeModal, loading = false } = props;
@@ -17,8 +18,7 @@ function ChapterInfoModal(props) {
               required: true,
               onClick: closeModal,
               label: "Close",
-            }}
-          >
+            }}>
             <div className="heading">Character seen in chapters</div>
             {loading && (
               <div className="modal-loader chapter-modal-content">
@@ -28,14 +28,9 @@ function ChapterInfoModal(props) {
             {!loading && (
               <div className="chapter-modal-content">
                 {chaptersList.length > 0 ? (
-                  <CustomTable
-                    rows={chaptersList}
-                    tableHeader={chapterInfoTableHeader}
-                  />
+                  <CustomTable rows={chaptersList} tableHeader={chapterInfoTableHeader} />
                 ) : (
-                  <div>
-                    Unable to fetch the details. Please try again after sometime
-                  </div>
+                  <div>Unable to fetch the details. Please try again after sometime</div>
                 )}
               </div>
             )}
@@ -45,5 +40,12 @@ function ChapterInfoModal(props) {
     </div>
   );
 }
+
+ChapterInfoModal.propTypes = {
+  openBackDrop: PropTypes.bool,
+  chaptersList: PropTypes.array,
+  closeModal: PropTypes.func,
+  loading: PropTypes.bool,
+};
 
 export default ChapterInfoModal;

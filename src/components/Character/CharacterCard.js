@@ -6,6 +6,7 @@ import httpMethods from "../httpRequests/index";
 import ChapterInfoModal from "./ChapterInfoModal";
 import LocationInfoModal from "./LocationInfoModal";
 import { getLocationInfoAPI } from "../httpRequests/location";
+import PropTypes from "prop-types";
 
 function CharacterCard(props) {
   const { item } = props;
@@ -80,8 +81,7 @@ function CharacterCard(props) {
           onClick: viewChapters,
           label: "View chapters",
         }}
-        imgStyle={{ height: "15.65rem" }}
-      >
+        imgStyle={{ height: "15.65rem" }}>
         <ObjectView
           objs={getCardDetails(item)}
           objStyles={{ box: { height: "4.5rem" }, key: { minWidth: "3.5rem" } }}
@@ -102,5 +102,9 @@ function CharacterCard(props) {
     </div>
   );
 }
+
+CharacterCard.propTypes = {
+  item: PropTypes.object,
+};
 
 export default CharacterCard;
