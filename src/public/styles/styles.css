@@ -108,3 +108,8 @@
 .chapter-modal-table {
   height: 20.313rem;
 }
+
+.temp-img {
+  background: url("../images/defaultImg.webp") no-repeat;
+  background-size: cover;
+}
