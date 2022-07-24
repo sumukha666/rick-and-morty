@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 import CustomCard from "../common/Card";
 import ObjectView from "../common/ObjectView";
-import { characterFields } from "./config";
+import { characterFields, locationInfo } from "./config";
 import httpMethods from "../httpRequests/index";
 import ChapterInfoModal from "./ChapterInfoModal";
+import LocationInfoModal from "./LocationInfoModal";
+import { getLocationInfoAPI } from "../httpRequests/location";
 
 function CharacterCard(props) {
   const { item } = props;
   const [chaptersList, setChaptersList] = useState([]);
   const [dispChapters, setDispChapters] = useState(false);
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const [dispLocInfo, setDispLocInfo] = useState(false);
+  const [locDetails, setLocDetails] = useState([]);
+  const [locInfoLoader, setLocInfoLoader] = useState(false);
 
   const viewChapters = () => {
     setLoading(true);
     setDispChapters(true);
+    setChaptersList([]);
     Promise.all(item.episode.map(httpMethods.fetchData))
       .then((allResps) => {
         const chaptersInfo = allResps.map((res) => {
@@ -28,9 +35,25 @@ function CharacterCard(props) {
         setLoading(false);
       })
       .catch(() => {
-        setChaptersList([]);
         setLoading(false);
       });
+  };
+
+  const viewLocationInfo = async () => {
+    setLocInfoLoader(true);
+    setLocDetails([]);
+    setDispLocInfo(true);
+    try {
+      const { data } = await getLocationInfoAPI({ id: item.id });
+      const locationDetails = locationInfo.map((field) => ({
+        key: field.keyLabel,
+        value: field.format ? field.format(data[field.key]) : data[field.key],
+      }));
+      setLocDetails(locationDetails);
+      setLocInfoLoader(false);
+    } catch (error) {
+      setLocInfoLoader(false);
+    }
   };
 
   const getCardDetails = (character) => {
@@ -47,6 +70,11 @@ function CharacterCard(props) {
         imageUrl={item.image}
         imageAlt={item.name}
         title={item.name}
+        leftBtn={{
+          required: true,
+          onClick: viewLocationInfo,
+          label: "Location info",
+        }}
         rightBtn={{
           required: true,
           onClick: viewChapters,
@@ -56,7 +84,7 @@ function CharacterCard(props) {
       >
         <ObjectView
           objs={getCardDetails(item)}
-          boxStyle={{ height: "4.5rem" }}
+          objStyles={{ box: { height: "4.5rem" }, key: { minWidth: "3.5rem" } }}
         />
       </CustomCard>
       <ChapterInfoModal
@@ -64,6 +92,12 @@ function CharacterCard(props) {
         chaptersList={chaptersList}
         closeModal={() => setDispChapters(false)}
         loading={loading}
+      />
+      <LocationInfoModal
+        openBackDrop={dispLocInfo}
+        locDetails={locDetails}
+        closeModal={() => setDispLocInfo(false)}
+        loading={locInfoLoader}
       />
     </div>
   );

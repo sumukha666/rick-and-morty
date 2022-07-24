@@ -2,11 +2,10 @@ import React from "react";
 import CustomBackdrop from "../common/Backdrop";
 import CustomCard from "../common/Card";
 import CustomLoader from "../common/Loader";
-import CustomTable from "../common/Table";
-import { chapterInfoTableHeader } from "./config";
+import ObjectView from "../common/ObjectView";
 
-function ChapterInfoModal(props) {
-  const { openBackDrop, chaptersList, closeModal, loading = false } = props;
+function locationInfoModal(props) {
+  const { openBackDrop, locDetails, closeModal, loading = false } = props;
 
   return (
     <div>
@@ -19,18 +18,21 @@ function ChapterInfoModal(props) {
               label: "Close",
             }}
           >
-            <div className="heading">Character seen in chapters</div>
+            <div className="heading">Character Location Information</div>
             {loading && (
-              <div className="modal-loader chapter-modal-content">
+              <div className="modal-loader loc-modal-obj-view">
                 <CustomLoader size="2.5rem" />
               </div>
             )}
             {!loading && (
-              <div className="chapter-modal-content">
-                {chaptersList.length > 0 ? (
-                  <CustomTable
-                    rows={chaptersList}
-                    tableHeader={chapterInfoTableHeader}
+              <div className="loc-modal-obj-view">
+                {locDetails.length > 0 ? (
+                  <ObjectView
+                    objs={locDetails}
+                    objStyles={{
+                      box: { height: "4.5rem" },
+                      key: { minWidth: "7.2rem" },
+                    }}
                   />
                 ) : (
                   <div>
@@ -46,4 +48,4 @@ function ChapterInfoModal(props) {
   );
 }
 
-export default ChapterInfoModal;
+export default locationInfoModal;

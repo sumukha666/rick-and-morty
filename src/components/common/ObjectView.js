@@ -1,11 +1,13 @@
 function ObjectView(props) {
-  const { objs, objStyle = { box: {}, key: {} } } = props;
+  const { objs, objStyles = { box: {}, key: {} } } = props;
 
   return (
-    <div style={objStyle.box}>
+    <div style={objStyles.box}>
       {objs.map((elem) => (
         <div className="dsp-flex" key={elem.key}>
-          <div style={objStyle.key} className="font-bold">{elem.key}:</div>
+          <div style={objStyles.key} className="font-bold">
+            {elem.key}:
+          </div>
           <div className="mr-l-1r">{elem.value}</div>
         </div>
       ))}
