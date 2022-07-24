@@ -14,7 +14,7 @@ function CharacterCard(props) {
     Promise.all(item.episode.map(httpMethods.fetchData))
       .then((allResps) => {
         const chaptersInfo = allResps.map((res) => {
-         if(!res.success) return {};
+          if (!res.success) return {};
           return {
             name: res.data.name,
             episode: res.data.episode,
@@ -49,8 +49,12 @@ function CharacterCard(props) {
           onClick: viewChapters,
           label: "View chapters",
         }}
+        imgStyle={{ height: "15.65rem" }}
       >
-        <ObjectView objs={getCardDetails(item)} />
+        <ObjectView
+          objs={getCardDetails(item)}
+          boxStyle={{ height: "4.5rem" }}
+        />
       </CustomCard>
       <ChapterInfoModal
         openBackDrop={dispChapters}

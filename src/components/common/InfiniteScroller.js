@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import CustomLoader from "./Loader";
 
 function InfiniteScroller(props) {
   const { getDataAction, children } = props;
@@ -32,7 +33,11 @@ function InfiniteScroller(props) {
         pageStart={0}
         next={nextPage}
         hasMore={nextExists}
-        loader={<h4>Loading...</h4>}
+        loader={<div><CustomLoader /></div>}
+        style={{overflow: 'none'}}
+        endMessage={<div className="end-of-list">
+          End of List!
+        </div>}
       >
         <div className="grid-wrapper">
           {items?.map((item, index) => (

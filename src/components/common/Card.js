@@ -11,13 +11,14 @@ function CustomCard(props) {
     children,
     leftBtn = {},
     rightBtn = {},
+    imgStyle={}
   } = props;
   return (
     <Card>
       <CardContent>
         {!!imageUrl && (
           <div>
-            <img src={imageUrl} alt={imgAlt} className="wd-100"></img>
+            <img src={imageUrl} alt={imgAlt} className="wd-100" style={imgStyle}></img>
           </div>
         )}
         <div className="title">{title}</div>
