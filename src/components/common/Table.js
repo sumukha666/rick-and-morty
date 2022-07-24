@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     minWidth: 100,
   },
   container: {
-    maxHeight: "75vh",
+    maxHeight: "50vh",
     overflowY: "auto",
   },
 });

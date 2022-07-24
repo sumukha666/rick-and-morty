@@ -97,3 +97,14 @@
   justify-content: center;
   padding: 2rem;
 }
+
+.chapter-modal-loader {
+  height: 20.313rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chapter-modal-table {
+  height: 20.313rem;
+}

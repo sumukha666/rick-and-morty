@@ -9,8 +9,11 @@ function CharacterCard(props) {
   const { item } = props;
   const [chaptersList, setChaptersList] = useState([]);
   const [dispChapters, setDispChapters] = useState(false);
+  const [loading,setLoading] = useState(false);
 
   const viewChapters = () => {
+    setLoading(true);
+    setDispChapters(true);
     Promise.all(item.episode.map(httpMethods.fetchData))
       .then((allResps) => {
         const chaptersInfo = allResps.map((res) => {
@@ -22,11 +25,11 @@ function CharacterCard(props) {
           };
         });
         setChaptersList(chaptersInfo);
-        setDispChapters(true);
+        setLoading(false);
       })
       .catch(() => {
         setChaptersList([]);
-        setDispChapters(true);
+        setLoading(false);
       });
   };
 
@@ -60,6 +63,7 @@ function CharacterCard(props) {
         openBackDrop={dispChapters}
         chaptersList={chaptersList}
         closeModal={() => setDispChapters(false)}
+        loading={loading}
       />
     </div>
   );
