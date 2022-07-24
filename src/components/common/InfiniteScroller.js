@@ -34,9 +34,13 @@ function InfiniteScroller(props) {
         hasMore={nextExists}
         loader={<h4>Loading...</h4>}
       >
-        {items?.map((item, index) => (
-          <div key={index}>{React.cloneElement(children, { item })}</div>
-        ))}
+        <div className="grid-wrapper">
+          {items?.map((item, index) => (
+            <div key={index} className="card-box">
+              {React.cloneElement(children, { item })}
+            </div>
+          ))}
+        </div>
       </InfiniteScroll>
     </div>
   );

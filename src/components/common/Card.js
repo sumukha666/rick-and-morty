@@ -17,7 +17,7 @@ function CustomCard(props) {
       <CardContent>
         {!!imageUrl && (
           <div>
-            <img src={imageUrl} alt={imgAlt}></img>
+            <img src={imageUrl} alt={imgAlt} className="wd-100"></img>
           </div>
         )}
         <div className="title">{title}</div>

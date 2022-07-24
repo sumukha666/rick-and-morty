@@ -38,7 +38,7 @@ function CharacterCard(props) {
   };
 
   return (
-    <div>
+    <div className="mr-1r">
       <CustomCard
         key={item.id}
         imageUrl={item.image}
