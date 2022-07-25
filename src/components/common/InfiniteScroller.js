@@ -61,9 +61,10 @@ function InfiniteScroller(props) {
   );
 }
 
+// Validating the props type
 InfiniteScroller.propTypes = {
-  getDataAction: PropTypes.func,
-  children: PropTypes.node,
+  getDataAction: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default InfiniteScroller;

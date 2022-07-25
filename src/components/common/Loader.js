@@ -25,6 +25,7 @@ function CustomLoader(props) {
   );
 }
 
+// Validating the props type
 CustomLoader.propTypes = {
   size: PropTypes.string,
 };

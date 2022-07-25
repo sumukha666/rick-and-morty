@@ -24,8 +24,9 @@ function ObjectView(props) {
   );
 }
 
+// Validating the props type
 ObjectView.propTypes = {
-  objs: PropTypes.array,
+  objs: PropTypes.array.isRequired,
   objStyles: PropTypes.object,
 };
 

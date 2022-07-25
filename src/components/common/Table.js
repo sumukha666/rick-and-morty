@@ -74,9 +74,10 @@ function CustomTable(props) {
   );
 }
 
+// Validating the props typ
 CustomTable.propTypes = {
-  rows: PropTypes.array,
-  tableHeader: PropTypes.array,
+  rows: PropTypes.array.isRequired,
+  tableHeader: PropTypes.array.isRequired,
 };
 
 export default CustomTable;

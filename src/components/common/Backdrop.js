@@ -25,9 +25,10 @@ function CustomBackdrop(props) {
   );
 }
 
+// Validating the props type
 CustomBackdrop.propTypes = {
-  open: PropTypes.bool,
-  children: PropTypes.node,
+  open: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default CustomBackdrop;

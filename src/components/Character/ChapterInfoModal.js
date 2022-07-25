@@ -47,10 +47,11 @@ function ChapterInfoModal(props) {
   );
 }
 
+// Validating the props type
 ChapterInfoModal.propTypes = {
-  openBackDrop: PropTypes.bool,
-  chaptersList: PropTypes.array,
-  closeModal: PropTypes.func,
+  openBackDrop: PropTypes.bool.isRequired,
+  chaptersList: PropTypes.array.isRequired,
+  closeModal: PropTypes.func.isRequired,
   loading: PropTypes.bool,
 };
 

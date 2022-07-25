@@ -112,6 +112,7 @@ function CharacterCard(props) {
   );
 }
 
+// Validating the props type
 CharacterCard.propTypes = {
   item: PropTypes.object,
 };

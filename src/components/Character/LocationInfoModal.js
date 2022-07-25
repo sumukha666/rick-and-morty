@@ -52,10 +52,11 @@ function LocationInfoModal(props) {
   );
 }
 
+// Validating the props type
 LocationInfoModal.propTypes = {
-  openBackDrop: PropTypes.bool,
-  locDetails: PropTypes.array,
-  closeModal: PropTypes.func,
+  openBackDrop: PropTypes.bool.isRequired,
+  locDetails: PropTypes.array.isRequired,
+  closeModal: PropTypes.func.isRequired,
   loading: PropTypes.bool,
 };
 

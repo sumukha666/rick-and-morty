@@ -18,7 +18,7 @@ function CustomCard(props) {
             <img src={imageUrl} alt={imgAlt} className="wd-100 temp-img" style={imgStyle}></img>
           </div>
         )}
-        <div className="title">{title}</div>
+        {title && <div className="title">{title}</div>}
         <div>{children}</div>
       </CardContent>
       <CardActions className="dsp-flex justify-content-end mr-t-1r">
@@ -37,6 +37,7 @@ function CustomCard(props) {
   );
 }
 
+// Validating the props type
 CustomCard.propTypes = {
   title: PropTypes.string,
   imageUrl: PropTypes.string,
