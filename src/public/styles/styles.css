@@ -109,7 +109,7 @@
 }
 
 .chapter-modal-content {
-  height: 20.313rem;
+  min-height: 26.4rem;
 }
 
 .temp-img {
