@@ -9,6 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
 
+// Updating the style of TableCell component
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -19,6 +20,7 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
+// Updating the style of TableRow component
 const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
@@ -27,6 +29,7 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
+// Updating the table width and height. Based on requirement this can be confiured through props.
 const useStyles = makeStyles({
   table: {
     minWidth: 100,
@@ -36,6 +39,12 @@ const useStyles = makeStyles({
     overflowY: "auto",
   },
 });
+
+/**
+ * Table requires rows and tableHeader as props.
+ * rows is an array of object that contains key and the label.
+ * rows is an array of object that contains property key and its value.
+ */
 
 function CustomTable(props) {
   const classes = useStyles();

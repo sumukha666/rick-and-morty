@@ -10,6 +10,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+/**
+ * Component is used to display loader while fetching the data.
+ */
+
 function CustomLoader(props) {
   const { size = "3.5rem" } = props;
   const classes = useStyles();

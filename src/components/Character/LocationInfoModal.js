@@ -5,7 +5,13 @@ import CustomLoader from "../common/Loader";
 import ObjectView from "../common/ObjectView";
 import PropTypes from "prop-types";
 
-function locationInfoModal(props) {
+/**
+ * The LocationInfoModal component displays location details in a modal.
+ * The information is displayed through ObjectView component.
+ * If there is any error while fetching the data, error message would be displayed.
+ */
+
+function LocationInfoModal(props) {
   const { openBackDrop, locDetails, closeModal, loading = false } = props;
 
   return (
@@ -46,11 +52,11 @@ function locationInfoModal(props) {
   );
 }
 
-locationInfoModal.propTypes = {
+LocationInfoModal.propTypes = {
   openBackDrop: PropTypes.bool,
-  chaptersList: PropTypes.array,
+  locDetails: PropTypes.array,
   closeModal: PropTypes.func,
   loading: PropTypes.bool,
 };
 
-export default locationInfoModal;
+export default LocationInfoModal;

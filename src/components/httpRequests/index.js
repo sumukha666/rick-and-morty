@@ -3,8 +3,10 @@ import config from "../../system/config";
 
 const getUrl = (endPoint) => `${config.BASE_URL}${endPoint}`;
 
+// genertic axios get API call
 const get = (path, config = {}) => axios.get(getUrl(path), config);
 
+// Get API call promise used for promise.all method.
 const fetchData = (URL) => {
   return axios
     .get(URL)

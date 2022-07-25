@@ -16,6 +16,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+/**
+ * Application Header component
+ */
+
 export default function ButtonAppBar() {
   const classes = useStyles();
 

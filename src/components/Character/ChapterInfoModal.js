@@ -6,6 +6,12 @@ import CustomTable from "../common/Table";
 import { chapterInfoTableHeader } from "./config";
 import PropTypes from "prop-types";
 
+/**
+ * The ChapterInfoModal component displays chapters in which character exists.
+ * The chapters list is displayed through Table component.
+ * If there is any error while fetching the data, error message would be displayed.
+ */
+
 function ChapterInfoModal(props) {
   const { openBackDrop, chaptersList, closeModal, loading = false } = props;
 

@@ -10,6 +10,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * This component accepts any component as a child and displays with backdrop effect.
+ */
+
 function CustomBackdrop(props) {
   const classes = useStyles();
   const { open, children } = props;

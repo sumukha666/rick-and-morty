@@ -8,6 +8,12 @@ import LocationInfoModal from "./LocationInfoModal";
 import { getLocationInfoAPI } from "../httpRequests/location";
 import PropTypes from "prop-types";
 
+/**
+ * This Component contains the card that is rendered on home page.
+ * The card containing character details is displayed (image, name, gender ..etc)
+ * Contains location info and view chapters actions
+ */
+
 function CharacterCard(props) {
   const { item } = props;
   const [chaptersList, setChaptersList] = useState([]);
@@ -18,6 +24,7 @@ function CharacterCard(props) {
   const [locDetails, setLocDetails] = useState([]);
   const [locInfoLoader, setLocInfoLoader] = useState(false);
 
+  // Promise.all method to get all chapter details from the list of urls
   const viewChapters = () => {
     setLoading(true);
     setDispChapters(true);
@@ -40,6 +47,7 @@ function CharacterCard(props) {
       });
   };
 
+  // Get API call to fetch the location details
   const viewLocationInfo = async () => {
     setLocInfoLoader(true);
     setLocDetails([]);
@@ -57,6 +65,7 @@ function CharacterCard(props) {
     }
   };
 
+  // Formatting the required fields from the each character object
   const getCardDetails = (character) => {
     return characterFields.map((field) => ({
       key: field.keyLabel,

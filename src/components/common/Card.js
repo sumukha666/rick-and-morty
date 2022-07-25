@@ -4,6 +4,10 @@ import CardContent from "@material-ui/core/CardContent";
 import { CardActions } from "@material-ui/core";
 import PropTypes from "prop-types";
 
+/**
+ * This componen is used to display a card containing image, actions and card body (children).
+ */
+
 function CustomCard(props) {
   const { title, imageUrl, imgAlt, children, leftBtn = {}, rightBtn = {}, imgStyle = {} } = props;
   return (

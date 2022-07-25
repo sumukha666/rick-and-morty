@@ -1,6 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ * This component is used to display data as object key and value.
+ * @example
+ * Name: John
+ */
+
 function ObjectView(props) {
   const { objs, objStyles = { box: {}, key: {} } } = props;
 

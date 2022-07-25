@@ -3,6 +3,12 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import CustomLoader from "./Loader";
 import PropTypes from "prop-types";
 
+/**
+ * The InfiniteScroll uses virtual scroll to fetch data based on screen scroll.
+ * The getDataAction is an API call function to get the List.
+ * children is the child component passed.
+ */
+
 function InfiniteScroller(props) {
   const { getDataAction, children } = props;
   const [items, setItems] = useState([]);
@@ -45,6 +51,7 @@ function InfiniteScroller(props) {
         <div className="grid-wrapper">
           {items?.map((item, index) => (
             <div key={index} className="card-box">
+              {/* We are cloning the child element by passing item to props */}
               {React.cloneElement(children, { item })}
             </div>
           ))}
